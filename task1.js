@@ -1,19 +1,25 @@
 function formatName(firstName, lastName) {
-    return firstName + " " +lastName;
+    return `${firstName} ${lastName}`;
 }
 
 function getGreeting(timeOfDay) {
     if (timeOfDay === "morning") {
-        return "Good morning,";
-    } else if (timeOfDay === "evening") {
-        return "Good evening,";
-    } else {
-        return "Good afternoon,";
+        return "Good morning";
+    } 
+    
+    if (timeOfDay === "afternoon") {
+        return "Good afternoon";
     }
+    return "Good afternoon";
 }
 
-function createGreeting(fName, lName, dTime) {
-    console.log(getGreeting(dTime), formatName(fName, lName));
+function createGreeting(firstName, lastName, timeOfDay) {
+    const greeting = getGreeting(timeOfDay);
+    const name = formatName(firstName, lastName)
+
+    return `${greeting}, ${name}`
 }
 
-createGreeting("John", "James", "morning")
+console.log(createGreeting('Ava', 'Stone', 'morning'));
+console.log(createGreeting('Noah', 'Kim', 'evening'));
+console.log(createGreeting('Mina', 'Patel', 'afternoon'));
